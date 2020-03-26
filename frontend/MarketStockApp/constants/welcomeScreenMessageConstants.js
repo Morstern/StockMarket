@@ -7,3 +7,8 @@ export const ButtonText = {
   login: "Log in",
   register: "Create an account"
 };
+
+export const Mode = {
+  login: "login",
+  register: "register"
+};

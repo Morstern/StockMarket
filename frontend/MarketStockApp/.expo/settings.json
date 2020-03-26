@@ -1,8 +1,8 @@
 {
+  "urlRandomness": "9c-hz4",
   "hostType": "lan",
   "lanType": "ip",
   "dev": true,
   "minify": false,
-  "urlRandomness": "r6-pfi",
   "https": false
 }
