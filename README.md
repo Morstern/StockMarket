@@ -17,7 +17,7 @@ Database works perfectly. <b>In addition of database creation script</b>:
 <h2>
 <b>
 Project is abandoned due to problems with communication on frontend. (I'm not into developing mobile applications,
-and further research made me think that there's a problem with connecting frontend to locally created backend)
+and further research made me think that there MIGHT be a problem with connecting frontend to locally created backend)
 <br/><br/>
 I will resume working on the project in future (but I'll make a website instead of mobile application)
 </b>
