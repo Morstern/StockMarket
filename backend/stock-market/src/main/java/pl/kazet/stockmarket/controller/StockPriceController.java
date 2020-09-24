@@ -32,9 +32,9 @@ public class StockPriceController {
     public ResponseEntity<List<StockPrice_PricesDatesProjection>> getStockByISIN(@PathVariable("isin") String ISIN, @RequestParam(required = false) Integer page, @RequestParam(required = false) Integer size) {
         if (Validator.containParameters(page, size) == true) {
             Pageable pageable = PageRequest.of(page, size);
-            return new ResponseEntity<>(stockPriceRepository.findAllByStockISINOrderByDateDesc(ISIN, pageable), HttpStatus.FOUND);
+            return new ResponseEntity<>(stockPriceRepository.findAllByStockISINOrderByDateDesc(ISIN, pageable), HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(stockPriceRepository.findAllByStockISINOrderByDateDesc(ISIN, null), HttpStatus.FOUND);
+            return new ResponseEntity<>(stockPriceRepository.findAllByStockISINOrderByDateDesc(ISIN, null), HttpStatus.OK);
         }
     }
 
@@ -42,15 +42,15 @@ public class StockPriceController {
     public ResponseEntity<List<StockPrice_PricesDatesProjection>> getStockByName(@PathVariable("name") String name, @RequestParam(required = false) Integer page, @RequestParam(required = false) Integer size) {
         if (Validator.containParameters(page, size) == true) {
             Pageable pageable = PageRequest.of(page, size);
-            return new ResponseEntity<>(stockPriceRepository.findAllByStockNameOrderByDateDesc(name, pageable), HttpStatus.FOUND);
+            return new ResponseEntity<>(stockPriceRepository.findAllByStockNameOrderByDateDesc(name, pageable), HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(stockPriceRepository.findAllByStockNameOrderByDateDesc(name, null), HttpStatus.FOUND);
+            return new ResponseEntity<>(stockPriceRepository.findAllByStockNameOrderByDateDesc(name, null), HttpStatus.OK);
         }
     }
 
     @GetMapping(value = "/summary")
     public ResponseEntity<Map<String, List<Top10RecordsEachISIN_BuyoutSelloutDateDTO>>> getSummaryView(){
-        return new ResponseEntity<>(top10RecordsEachISINViewRepository.findAll().stream().map(top10RecordsEachISIN -> new Top10RecordsEachISIN_BuyoutSelloutDateDTO(top10RecordsEachISIN)).collect(Collectors.groupingBy(Top10RecordsEachISIN_BuyoutSelloutDateDTO::getStockName)), HttpStatus.FOUND);
+        return new ResponseEntity<>(top10RecordsEachISINViewRepository.findAll().stream().map(top10RecordsEachISIN -> new Top10RecordsEachISIN_BuyoutSelloutDateDTO(top10RecordsEachISIN)).collect(Collectors.groupingBy(Top10RecordsEachISIN_BuyoutSelloutDateDTO::getStockName)), HttpStatus.OK);
     }
 
 }

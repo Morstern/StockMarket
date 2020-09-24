@@ -25,7 +25,7 @@ public class StockController {
     public ResponseEntity<?> getStockByISIN(@PathVariable("isin") String ISIN) {
         Optional<Stock> stock = stockRepository.findById(ISIN);
         if (stock.isPresent()) {
-            return new ResponseEntity<>(stock, HttpStatus.FOUND);
+            return new ResponseEntity<>(stock, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
@@ -35,7 +35,7 @@ public class StockController {
     public ResponseEntity<?> getStockByName(@PathVariable("name") String name) {
         Optional<Stock> stock = stockRepository.findStockByName(name);
         if (stock.isPresent()) {
-            return new ResponseEntity<>(stock, HttpStatus.FOUND);
+            return new ResponseEntity<>(stock, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

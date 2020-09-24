@@ -61,7 +61,7 @@ public class UserStockController {
             resultUserStocks.put(stockName, new UserStockGroupedByStockDTO(currentStockPrice, groupedUserStock, netProfitMarginCalculator.calculateNetProfitMarginValueForGroup(), netProfitMarginCalculator.calculateNetProfitPercentageValueForGroup()));
         }
 
-        return new ResponseEntity<>(new UserStockViewModel(resultUserStocks), HttpStatus.FOUND);
+        return new ResponseEntity<>(new UserStockViewModel(resultUserStocks), HttpStatus.OK);
     }
 
     private Map<String, List<UserStock_NamePriceAmountDateDTO>> groupUserStockByStockName(List<UserStock> allStocksByUser) {

@@ -31,7 +31,7 @@ public class StockSubscriptionController {
     @GetMapping("/")
     public ResponseEntity<List<StockSubscriptionWithoutUserProjection>> getAllStockSubscriptionForUser() {
         User currentUser = UserUtils.getCurrentUser();
-        return new ResponseEntity<>(stockSubscriptionRepository.findAllByUserIdUser(currentUser.getIdUser()), HttpStatus.FOUND);
+        return new ResponseEntity<>(stockSubscriptionRepository.findAllByUserIdUser(currentUser.getIdUser()), HttpStatus.OK);
     }
 
     @PostMapping("/{ISIN}")
@@ -41,7 +41,7 @@ public class StockSubscriptionController {
         if (stock.isPresent()) {
             StockSubscription stockSubscription = new StockSubscription(stock.get(), currentUser);
             stockSubscriptionRepository.save(stockSubscription);
-            return new ResponseEntity(stockSubscription, HttpStatus.FOUND);
+            return new ResponseEntity(stockSubscription, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }

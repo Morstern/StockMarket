@@ -56,7 +56,7 @@ public class NetProfitMarginCalculator {
     }
 
     private  BigDecimal getTotalCurrentSelloutValue(){
-        return BigDecimal.valueOf(amountOfBoughtStocks * currentStockPrice.getCurrentSelloutPrice().longValue());
+        return BigDecimal.valueOf(amountOfBoughtStocks * currentStockPrice.getCurrentSelloutPrice().doubleValue());
     }
 
     private BigDecimal getSumProductOfBoughtStocks(){
